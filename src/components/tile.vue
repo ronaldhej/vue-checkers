@@ -24,7 +24,8 @@ export default {
 
   data() {
     return {
-      tileColor: 'yellow'
+      // Data goes here
+      tileColor: 'white'
     }
   },
 
@@ -32,10 +33,12 @@ export default {
     colorTiles: function(row, col) {
       if (col % 2 === 0) {
         if(row % 2 === 0) {
+          this.tileColor = 'gray'
           return 'gray'
         }
       } else {
         if(row % 2 !== 0) {
+          this.tileColor = 'gray'
           return 'gray'
         }        
       }

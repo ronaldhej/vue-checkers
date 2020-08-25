@@ -46,26 +46,6 @@ export default {
       isBlack: true
     }
 
-  },
-
-  methods: {
-        isEven: function(n) {
-            if (n % 2 === 0) {
-                return true
-            }
-        },
-
-        assignKey: function (index) {
-          return index + this.letters[index]
-        }
-    }
+  }
 }
 </script>
-
-<style scoped>
-
-  .isBlack {
-    color: black;
-  }
-
-</style>

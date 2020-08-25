@@ -8,6 +8,8 @@
       height="100px"
       width="100px"
       ripple
+      @click="snackbar = true"
+      v-click-outside="onClickOutside"
       >
         <v-img
             height="100px"
@@ -16,6 +18,21 @@
         >
         </v-img>
       </v-card>
+    <v-snackbar
+      v-model="snackbar"
+    >
+      Tile clicked at: {{row}}, {{col}}. The piece is {{currentPiece}}
+      <template v-slot:action="{ attrs }">
+        <v-btn
+            color="pink"
+            text
+            v-bind="attrs"
+            @click="snackbar = false"
+        >
+          close
+        </v-btn>
+      </template>
+    </v-snackbar>
   </v-container>
 </template>
 
@@ -38,7 +55,8 @@ export default
         blackPiece: require('../assets/blackpiece.png'),
         whitePiece: require('../assets/whitepiece.png')
       },
-      currentPiece: 'white'
+      currentPiece: 'white',
+      snackbar: false
     }
   },
 
@@ -60,7 +78,7 @@ export default
 
     placePieces: function (row)
     {
-      if (this.tileColor == 'gray')
+      if (this.tileColor === 'gray')
       {
         switch (row)
         {
@@ -82,10 +100,19 @@ export default
           case 8:
             this.currentPiece = 'black'
             return this.images.blackPiece
+          default:
+            return this.currentPiece = 'none'
         }
       }
+      else
+      {
+        return this.currentPiece = 'none'
+      }
+    },
+    onClickOutside: function ()
+    {
+      this.snackbar = false
     }
   }
 }
-
 </script>

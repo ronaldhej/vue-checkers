@@ -1,7 +1,11 @@
 <template>
   <v-app>
-    <v-main>
-      <board/>
+    <v-main
+      style="background-color: black"
+    >
+      <board
+          class="pt-16"
+      />
     </v-main>
   </v-app>
 </template>

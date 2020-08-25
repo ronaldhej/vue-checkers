@@ -43,7 +43,6 @@ export default {
 
   data: function() {
     return {
-      isBlack: true
     }
 
   }

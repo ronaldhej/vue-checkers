@@ -1,7 +1,6 @@
 <template>
   <v-container>
       <v-card
-      outlined
       class="pa-0 ma-0"
       v-bind:style="{ 'background-color': colorTiles(row,col), 'background-image': placePieces(row, col)}"
       tile
@@ -21,10 +20,10 @@
     <v-snackbar
       v-model="snackbar"
     >
-      Tile clicked at: {{row}}, {{col}}. The piece is {{currentPiece}}
+      Tile clicked at row: {{row}}, column: {{col}}. The piece is {{currentPiece}}
       <template v-slot:action="{ attrs }">
         <v-btn
-            color="pink"
+            color="teal"
             text
             v-bind="attrs"
             @click="snackbar = false"

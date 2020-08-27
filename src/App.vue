@@ -1,10 +1,9 @@
 <template>
   <v-app>
-    <v-main
-      style="background-color: black"
-    >
+    <v-main>
+      <appbar/>
       <board
-          class="pt-16"
+          class="pt-16 d-md-block"
       />
     </v-main>
   </v-app>
@@ -12,12 +11,14 @@
 
 <script>
 import board from './components/board';
+import appbar from './components/appbar'
 
 export default {
   name: 'App',
 
   components: {
-    board
+    board,
+    appbar
   },
 
   data: () => ({

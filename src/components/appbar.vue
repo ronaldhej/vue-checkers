@@ -3,7 +3,7 @@
       fluid
   >
     <v-app-bar
-        color="teal"
+        color="deep-purple lighten-2"
         class="pa-0 ma-0"
         absolute
         dark

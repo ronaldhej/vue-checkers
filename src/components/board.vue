@@ -1,15 +1,39 @@
 <template>
 <v-container
     fluid
-    class="d-none">
+>
   <v-row
       justify="center"
       align="center"
   >
+    <div
+        class="d-md-none text-h3 text-center pl-4 pr-4 font-weight-bold"
+    >
+      Woah there bud, try use a larger screen to view the checkers board!
+    </div>
+    <v-snackbar
+        v-model="snackbar"
+        top
+        class="pa-12"
+        timeout="4000"
+    >
+      Now with easy deployment of new builds to the repository! <br/>
+      We still have shit checker icons though
+      <template v-slot:action="{ attrs }">
+        <v-btn
+            color="teal"
+            text
+            v-bind="attrs"
+            @click="snackbar = false"
+        >
+          close
+        </v-btn>
+      </template>
+    </v-snackbar>
     <v-card
         shaped
         elevation="10"
-        class="justify-center"
+        class="justify-center d-none d-md-block"
         width="850px"
     >
       <v-row
@@ -57,6 +81,7 @@ export default {
 
   data: function() {
     return {
+      snackbar: true
     }
 
   }

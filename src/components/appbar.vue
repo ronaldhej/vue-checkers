@@ -5,10 +5,8 @@
     <v-app-bar
         color="deep-purple lighten-2"
         class="pa-0 ma-0"
-        absolute
+        fixed
         dark
-        collapse-on-scroll
-        min-width="100%"
     >
       <v-app-bar-nav-icon @click.stop="drawer = !drawer">
 
@@ -51,7 +49,7 @@
 
     <v-navigation-drawer
         v-model="drawer"
-        absolute
+        fixed
         temporary
     >
       <v-list-item>
@@ -73,7 +71,9 @@
             @click="() => {}"
         >
           <v-list-item-title
-          >Homepage</v-list-item-title>
+          >
+            Homepage
+          </v-list-item-title>
         </v-list-item>
         <v-list-item
             class="pt-2 pb-2"

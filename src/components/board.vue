@@ -6,11 +6,6 @@
       justify="center"
       align="center"
   >
-    <div
-        class="d-md-none text-h3 text-center pl-4 pr-4 font-weight-bold"
-    >
-      Woah there bud, try use a larger screen to view the checkers board!
-    </div>
     <v-snackbar
         v-model="snackbar"
         top
@@ -33,7 +28,7 @@
     <v-card
         shaped
         elevation="10"
-        class="justify-center d-none d-md-block"
+        class="justify-center"
         width="850px"
     >
       <v-row

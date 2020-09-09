@@ -4,16 +4,16 @@
       <appbar/>
       <v-row>
         <homepage/>
-        <board
-            class="pt-16"
-        />
+        <!--<board
+            class="pt-16 d-none d-md-block"
+        />-->
       </v-row>
     </v-main>
   </v-app>
 </template>
 
 <script>
-import board from './components/board';
+// import board from './components/board';
 import appbar from './components/appbar'
 import homepage from "@/components/homepage";
 
@@ -21,7 +21,7 @@ export default {
   name: 'App',
 
   components: {
-    board,
+    //board,
     appbar,
     homepage
   },

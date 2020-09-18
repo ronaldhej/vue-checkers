@@ -2,12 +2,12 @@
   <v-container>
       <v-card
       class="pa-0 ma-0"
-      v-bind:style="{ 'background-color': colorTiles(row,col), 'background-image': placePieces(row, col)}"
+      v-once :style="{ 'background-color': colorTiles(row,col), 'background-image': placePieces(row, col)}"
       tile
       height="100px"
       width="100px"
       ripple
-      @click="snackbar = true"
+      @click="tileClicked(row, col, currentPiece)"
       v-click-outside="onClickOutside"
       >
         <v-img
@@ -111,7 +111,16 @@ export default
     onClickOutside: function ()
     {
       this.snackbar = false
+    },
+
+    tileClicked: function (row, col, currentPiece)
+    {
+      this.snackbar = true
+
+      this.$emit('tileClicked', row, col, currentPiece)
+
     }
+
   }
 }
 </script>

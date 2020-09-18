@@ -12,7 +12,7 @@
 
       </v-app-bar-nav-icon>
 
-      <v-toolbar-title>Ronald's Portfolio Site (Currently shitty checkers)</v-toolbar-title>
+      <v-toolbar-title>Ronald's Portfolio Site (Currently work in progress)</v-toolbar-title>
 
       <v-spacer></v-spacer>
 

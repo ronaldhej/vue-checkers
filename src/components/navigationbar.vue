@@ -25,7 +25,9 @@
       <v-list-item>
         <v-list-item-title>Changelog</v-list-item-title>
       </v-list-item>
-      <v-list-item>
+      <v-list-item
+        @click="checkersClicked"
+      >
         <v-list-item-title>Checkers</v-list-item-title>
       </v-list-item>
     </v-list>
@@ -37,6 +39,13 @@ export default {
   name: "navigationbar",
   props: {
     drawer: null
+  },
+
+  methods: {
+    checkersClicked: function() {
+
+    }
+
   }
 }
 </script>

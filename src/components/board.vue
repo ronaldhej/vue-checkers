@@ -53,11 +53,15 @@
               sm="1"
               class="pa-0 ma-0"
               outlined
+              v-on:tileClicked="tileClicked"
           />
         </v-col>
       </v-row>
     </v-card>
   </v-row>
+  <h1>
+    Col: {{selectedTile.col}}, Row: {{selectedTile.row}}, {{selectedTile.currentPiece}}
+  </h1>
 </v-container>
 
 </template>
@@ -76,7 +80,43 @@ export default {
 
   data: function() {
     return {
-      snackbar: true
+      tileIsPrimed: false,
+      snackbar: true,
+
+      selectedTile: {
+        row: 1,
+        col: 1,
+        currentPiece: "none"
+      },
+
+      originTile: {
+        row: 1,
+        col: 1,
+        currentPiece: "none"
+      },
+
+      destTile: {
+        row: 1,
+        col: 2,
+        currentPiece: "none"
+      }
+    }
+
+  },
+
+  methods: {
+    
+    tileClicked: function(row, col, currentPiece) {
+      if (this.tileIsPrimed == false) {
+
+        this.originTile.row = row
+        this.originTile.col = col
+        this.originTile.currentPiece = currentPiece
+
+        this.tileIsPrimed = !(this.tileIsPrimed)
+
+        
+      }
     }
 
   }

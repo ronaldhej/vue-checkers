@@ -46,9 +46,11 @@
           <tile
               v-for="x in 8"
               style="height: 100px; width:100px"
+              :ref="'tile' + y + x"
               :key="x"
               :row="x"
               :col="y"
+              :targetTile="selectedTile"
               cols="8"
               sm="1"
               class="pa-0 ma-0"
@@ -60,8 +62,11 @@
     </v-card>
   </v-row>
   <h1>
-    Col: {{selectedTile.col}}, Row: {{selectedTile.row}}, {{selectedTile.currentPiece}}
+    Selected: Col: {{selectedTile.col}}, Row: {{selectedTile.row}}, {{selectedTile.currentPiece}}, Origin: col:{{originTile.col}}, row:{{originTile.row}} - {{tileIsPrimed}} -- {{currentRef}}
   </h1>
+  <h2>
+    {{refName}}
+  </h2>
 </v-container>
 
 </template>
@@ -95,11 +100,8 @@ export default {
         currentPiece: "none"
       },
 
-      destTile: {
-        row: 1,
-        col: 2,
-        currentPiece: "none"
-      }
+      currentRef: "null",
+      refName: "tile" + 1 + 1
     }
 
   },
@@ -107,6 +109,7 @@ export default {
   methods: {
     
     tileClicked: function(row, col, currentPiece) {
+
       if (this.tileIsPrimed == false) {
 
         this.originTile.row = row
@@ -115,7 +118,22 @@ export default {
 
         this.tileIsPrimed = !(this.tileIsPrimed)
 
+        this.refName = "tile" + col + row
+        console.log(this.$refs[this.refName])
+
+      } else {
         
+        this.selectedTile.row = row
+        this.selectedTile.col = col
+        this.selectedTile.currentPiece = currentPiece
+
+        this.tileIsPrimed = !(this.tileIsPrimed)
+
+
+        this.refName = "tile" + col + row
+        console.log(this.$refs[this.refName])
+        console.log("New selection should be: " + this.selectedTile.row + " " + this.selectedTile.col)
+
       }
     }
 

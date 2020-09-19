@@ -41,7 +41,8 @@ export default
   name: "tile",
   props: {
     row: Number,
-    col: Number
+    col: Number,
+    targetTile: Object
   },
 
   data()

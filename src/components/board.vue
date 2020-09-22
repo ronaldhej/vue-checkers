@@ -50,7 +50,7 @@
               :key="x"
               :row="x"
               :col="y"
-              :targetTile="selectedTile"
+              :targetTile="targetTile"
               cols="8"
               sm="1"
               class="pa-0 ma-0"
@@ -62,7 +62,7 @@
     </v-card>
   </v-row>
   <h1>
-    Selected: Col: {{selectedTile.col}}, Row: {{selectedTile.row}}, {{selectedTile.currentPiece}}, Origin: col:{{originTile.col}}, row:{{originTile.row}} - {{tileIsPrimed}} -- {{currentRef}}
+      Origin: col:{{originTile.col}}, row:{{originTile.row}} - {{tileIsPrimed}} -- {{currentRef}} Selected: Col: {{targetTile.col}}, Row: {{targetTile.row}}, {{targetTile.currentPiece}}
   </h1>
   <h2>
     {{refName}}
@@ -88,10 +88,10 @@ export default {
       tileIsPrimed: false,
       snackbar: true,
 
-      selectedTile: {
+      targetTile: {
         row: 1,
         col: 1,
-        currentPiece: "none"
+        originPiece: "none"
       },
 
       originTile: {
@@ -123,16 +123,16 @@ export default {
 
       } else {
         
-        this.selectedTile.row = row
-        this.selectedTile.col = col
-        this.selectedTile.currentPiece = currentPiece
+        this.targetTile.row = row
+        this.targetTile.col = col
+        this.targetTile.originPiece = this.originTile.currentPiece
 
         this.tileIsPrimed = !(this.tileIsPrimed)
 
 
         this.refName = "tile" + col + row
         console.log(this.$refs[this.refName])
-        console.log("New selection should be: " + this.selectedTile.row + " " + this.selectedTile.col)
+        console.log("New selection should be: " + this.targetTile.row + " " + this.targetTile.col)
 
       }
     }
